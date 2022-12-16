@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main>
+    <section class="game">
+      <header class="game__header">
+        <h1 id="game__title" class="visually-hidden">Rock, paper and scissors game</h1>
+        <img class="game__logo" src="./images/logo.svg" alt="Rock, paper and scissors" aria-labelledby="game__title">
+
+        <div class="game__score-container">
+          <p class="game__score-text">Score</p>
+          <p class="game__score">12</p>
+        </div>
+      </header>
+
+      <div class="game__content">
+        <button class="game__choice" data-choice="paper">
+          <span class="visually-hidden">Paper</span>
+        </button>
+        <button class="game__choice" data-choice="scissors">
+          <span class="visually-hidden">Scissors</span>
+        </button>
+        <button class="game__choice" data-choice="rock">
+          <span class="visually-hidden">Rock</span>
+        </button>
+      </div>
+
+      <footer class="game__footer">
+        <button class="game__rules-btn">Rules</button>
+      </footer>
+
+    </section>
+  </main>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://www.linkedin.com/in/eudes-serpa/">Eudes Serpa</a>.
+  </footer>
+</body>
+</html>

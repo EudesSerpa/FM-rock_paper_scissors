@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+:root {
+  /* Colors */
+  /* Primary */
+  --scissors-gradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
+  --paper-gradient: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
+  --rock-gradient: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
+  --lizard-gradient: hsl(261, 73%, 60%), hsl(261, 72%, 63%);
+  --cyan: hsl(189, 59%, 53%), hsl(189, 58%, 57%);
+  /* Neutral */
+  --dark-text: hsl(229, 25%, 31%);
+  --score-text: hsl(229, 64%, 46%);
+  --header-outline: hsl(217, 16%, 45%);
+
+  --main-text: hsl(255, 15%, 95%);
+  /* Background */
+  --radial-gradient: hsl(214, 47%, 23%), hsl(237, 49%, 15%);
+
+  /* Fonts */
+  --fs-base: 1rem;
+  --ff-base: 'Barlow Semi Condensed', sans-serif;
+  --fw-bold: 700;
+  --fw-semibold: 600;
+
+  /* Borders */
+  --bdr-radius: .4375rem;
+}
+
+/* Code from: https://www.joshwcomeau.com/css/custom-css-reset/ */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* General styles */
+body {
+  display: grid;
+  min-height: 100vh;
+  margin: 2rem;
+  font: var(--fw-semibold) var(--fs-base) var(--ff-base);
+  color: var(--main-text);
+  background: radial-gradient(var(--radial-gradient));
+  text-transform: uppercase;
+}
+
+/* Utilities */
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Game */
+.game {
+  display: grid;
+  gap: 7rem;
+}
+
+.game__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .625rem .625rem .625rem 1.25rem;
+  border: .21875rem solid var(--header-outline);
+  border-radius: var(--bdr-radius);
+  font-weight: var(--fw-semibold);
+}
+
+.game__logo {
+  width: 85px;
+}
+
+.game__score-container {
+  padding: .75rem 1.5rem;
+  border-radius: .3125rem;
+  color: var(--dark-text);
+  background-color: var(--main-text);
+  text-align: center;
+  line-height: 1;
+}
+
+.game__score-text {
+  font-size: .625rem;
+  letter-spacing: .0625rem;
+  color: var(--score-text);
+}
+
+.game__score {
+  font-size: 2.4rem;
+  font-weight: var(--fw-bold);
+}
+
+.game__content {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: no-repeat center/60% url("./images/bg-triangle.svg");
+}
+
+.game__choice {
+  --bdr-color: var(--header-outline);
+  --shadow-color: var(--dark-text);
+
+  display: grid;
+  place-items: center;
+  margin-inline: auto;
+  padding: 1.125rem 1.5rem;
+  border: .84375rem solid var(--bdr-color);
+  border-radius: 50%;
+  background-color: var(--main-text);
+  box-shadow: 
+    inset 0 .33rem 0 .003125rem rgba(0, 0, 0, .1),
+    0 .35rem 0 .003125rem var(--shadow-color);
+  cursor: pointer;
+}
+
+.game__choice[data-choice="paper"] {
+  --bdr-color: hsl(230, 89%, 65%);
+  --shadow-color: hsl(230, 89%, 62%);
+}
+
+.game__choice[data-choice="scissors"] {
+  --bdr-color: hsl(40, 84%, 53%);
+  --shadow-color: hsl(39, 89%, 49%);
+}
+
+.game__choice[data-choice="rock"] {
+  --bdr-color: hsl(349, 70%, 56%);
+  --shadow-color: hsl(349, 71%, 52%);
+}
+
+.game__choice::after {
+  --choice-icon: "";
+  
+  content: "";
+  width: 50px;
+  height: 60px;
+  background: no-repeat center / 90% var(--choice-icon);
+}
+
+.game__choice[data-choice="paper"]::after {
+  --choice-icon: url("./images/icon-paper.svg");
+}
+.game__choice[data-choice="scissors"]::after {
+  --choice-icon: url("./images/icon-scissors.svg");
+}
+.game__choice[data-choice="rock"]::after {
+  --choice-icon: url("./images/icon-rock.svg");
+}
+
+.game__footer {
+  margin-block-start: 1.2rem;
+  text-align: center;
+}
+
+.game__rules-btn {
+  padding: .625rem 2.25rem;
+  border: .09375rem solid var(--main-text);
+  border-radius: .5625rem;
+  color: var(--main-text);
+  background-color: transparent;
+  font-weight: var(--fw-semibold);
+  letter-spacing: .125rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Attribution */
+.attribution {
+  margin-block: 1rem;
+  color: var(--main-headings);
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
