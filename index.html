@@ -1,48 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Rock, Paper, Scissors</title>
-  <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
-  <main>
-    <section class="game">
-      <header class="game__header">
-        <h1 id="game__title" class="visually-hidden">Rock, paper and scissors game</h1>
-        <img class="game__logo" src="./images/logo.svg" alt="Rock, paper and scissors" aria-labelledby="game__title">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-        <div class="game__score-container">
-          <p class="game__score-text">Score</p>
-          <p class="game__score">12</p>
-        </div>
+    <title>Frontend Mentor | Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="game">
+        <header class="game__header">
+          <h1 class="visually-hidden">Rock, paper and scissors game</h1>
+          <img
+            class="game__logo"
+            src="./images/logo.svg"
+            alt="Rock, paper and scissors"
+          />
+
+          <div class="game__score-container">
+            <p class="game__score-text">Score</p>
+            <p class="game__score">12</p>
+          </div>
+        </header>
+
+        <!-- First Step: Selection -->
+        <article class="game__board" data-board="1">
+          <h2 class="game__init-title">Select your hand</h2>
+
+          <ul class="game__content" data-step="1">
+            <li>
+              <button class="btn game__choice-btn" data-choice="paper">
+                <span class="visually-hidden">Paper</span>
+              </button>
+            </li>
+            <li>
+              <button class="btn game__choice-btn" data-choice="scissors">
+                <span class="visually-hidden">Scissors</span>
+              </button>
+            </li>
+            <li>
+              <button class="btn game__choice-btn" data-choice="rock">
+                <span class="visually-hidden">Rock</span>
+              </button>
+            </li>
+          </ul>
+        </article>
+
+        <!-- TODO's 
+          TODO 1. Remove effects from buttons in 2° & 3° step. 
+          TODO 2. Add transition between boards -->
+
+        <!-- Second step: Play -->
+        <!-- <article class="game__board">
+          <ul class="game__content" data-step="2">
+            <li class="game__picked-container game__picked--player">
+              <button class="btn game__choice-btn" data-choice="paper">
+                <span class="visually-hidden">Paper</span>
+              </button>
+              <p>You picked</p>
+            </li>
+            <li class="game__picked-container game__picked--machine">
+              <button class="btn game__choice-btn"></button>
+              <p>The house picked</p>
+            </li>
+          </ul>
+        </article> -->
+
+        <!-- Third step: Select winner -->
+        <!-- <article class="game__board">
+          <ul class="game__content" data-step="3">
+            <li class="game__picked-container game__picked--player">
+              <button class="btn game__choice-btn" data-choice="paper">
+                <span class="visually-hidden">Paper</span>
+              </button>
+              <p>You picked</p>
+            </li>
+
+            <li class="game__picked-container game__picked--machine">
+              <button
+                class="btn game__choice-btn game__choice-btn--winner"
+                data-choice="scissors"
+              ></button>
+              <p>The house picked</p>
+            </li>
+          </ul>
+
+          <div class="game__results">
+            <h2 class="game__results-title">You lose</h2>
+
+            <button class="btn game__results-btn">Play again</button>
+          </div>
+        </article> -->
+
+        <footer class="game__footer">
+          <button class="btn game__rules-btn">Rules</button>
+        </footer>
+      </section>
+    </main>
+
+    <aside class="rules-modal">
+      <header>
+        <h2 class="rules-modal__title">Rules</h2>
       </header>
 
-      <div class="game__content">
-        <button class="game__choice" data-choice="paper">
-          <span class="visually-hidden">Paper</span>
-        </button>
-        <button class="game__choice" data-choice="scissors">
-          <span class="visually-hidden">Scissors</span>
-        </button>
-        <button class="game__choice" data-choice="rock">
-          <span class="visually-hidden">Rock</span>
-        </button>
-      </div>
+      <img
+        class="rules-modal__image"
+        src="./images/image-rules.svg"
+        alt="Rock beats scissors, scissors beats paper and paper beats rock"
+      />
 
-      <footer class="game__footer">
-        <button class="game__rules-btn">Rules</button>
+      <footer>
+        <button class="btn rules-modal__close-btn" title="Close rules">
+          <span class="visually-hidden">Close rules</span>
+        </button>
       </footer>
+    </aside>
 
-    </section>
-  </main>
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://www.linkedin.com/in/eudes-serpa/">Eudes Serpa</a>.
+    </footer>
 
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="https://www.linkedin.com/in/eudes-serpa/">Eudes Serpa</a>.
-  </footer>
-</body>
+    <script src="./index.js"></script>
+  </body>
 </html>
