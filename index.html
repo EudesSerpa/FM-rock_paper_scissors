@@ -27,78 +27,48 @@
 
           <div class="game__score-container">
             <p class="game__score-text">Score</p>
-            <p class="game__score">12</p>
+            <p class="game__score">0</p>
           </div>
         </header>
 
-        <!-- First Step: Selection -->
-        <article class="game__board" data-board="1">
-          <h2 class="game__init-title">Select your hand</h2>
+        <div class="game__body">
+          <!-- First Step: Selection -->
+          <article class="game__board" data-board="1">
+            <h2 class="game__init-title">Select your hand</h2>
 
-          <ul class="game__content" data-step="1">
-            <li>
-              <button class="btn game__choice-btn" data-choice="paper">
-                <span class="visually-hidden">Paper</span>
-              </button>
-            </li>
-            <li>
-              <button class="btn game__choice-btn" data-choice="scissors">
-                <span class="visually-hidden">Scissors</span>
-              </button>
-            </li>
-            <li>
-              <button class="btn game__choice-btn" data-choice="rock">
-                <span class="visually-hidden">Rock</span>
-              </button>
-            </li>
-          </ul>
-        </article>
+            <ul class="game__content" data-step="1">
+              <li>
+                <button class="btn game__choice-btn" data-choice="paper">
+                  <span class="visually-hidden">Paper</span>
+                </button>
+              </li>
+              <li>
+                <button class="btn game__choice-btn" data-choice="scissors">
+                  <span class="visually-hidden">Scissors</span>
+                </button>
+              </li>
+              <li>
+                <button class="btn game__choice-btn" data-choice="rock">
+                  <span class="visually-hidden">Rock</span>
+                </button>
+              </li>
+            </ul>
+          </article>
 
-        <!-- TODO's 
-          TODO 1. Remove effects from buttons in 2° & 3° step. 
-          TODO 2. Add transition between boards -->
-
-        <!-- Second step: Play -->
-        <!-- <article class="game__board">
-          <ul class="game__content" data-step="2">
-            <li class="game__picked-container game__picked--player">
-              <button class="btn game__choice-btn" data-choice="paper">
-                <span class="visually-hidden">Paper</span>
-              </button>
-              <p>You picked</p>
-            </li>
-            <li class="game__picked-container game__picked--machine">
-              <button class="btn game__choice-btn"></button>
-              <p>The house picked</p>
-            </li>
-          </ul>
-        </article> -->
-
-        <!-- Third step: Select winner -->
-        <!-- <article class="game__board">
-          <ul class="game__content" data-step="3">
-            <li class="game__picked-container game__picked--player">
-              <button class="btn game__choice-btn" data-choice="paper">
-                <span class="visually-hidden">Paper</span>
-              </button>
-              <p>You picked</p>
-            </li>
-
-            <li class="game__picked-container game__picked--machine">
-              <button
-                class="btn game__choice-btn game__choice-btn--winner"
-                data-choice="scissors"
-              ></button>
-              <p>The house picked</p>
-            </li>
-          </ul>
-
-          <div class="game__results">
-            <h2 class="game__results-title">You lose</h2>
-
-            <button class="btn game__results-btn">Play again</button>
+          <!-- Second step: Play -->
+          <div class="game__board">
+            <ul class="game__content" data-step="2">
+              <li class="game__picked-container">
+                <button class="btn game__choice-btn"></button>
+                <p>You picked</p>
+              </li>
+              <li class="game__picked-container">
+                <button class="btn game__choice-btn"></button>
+                <p>The house picked</p>
+              </li>
+            </ul>
           </div>
-        </article> -->
+        </div>
 
         <footer class="game__footer">
           <button class="btn game__rules-btn">Rules</button>
