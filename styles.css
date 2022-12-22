@@ -164,14 +164,13 @@ ul {
   border-radius: .3125rem;
   color: var(--dark-text);
   background-color: var(--main-text);
-
   line-height: 1;
 }
 
 .game__score-text {
   font-size: .625rem;
-  letter-spacing: var(--letter-spacing);
   color: var(--score-text);
+  letter-spacing: var(--letter-spacing);
 }
 
 .game__score {
@@ -239,8 +238,6 @@ ul {
   position: absolute;
   content: "";
   inset: 0;
-  width: 100%;
-  height: 100%;
   border-radius: inherit;
   opacity: 0;
   box-shadow: 0 0 .625rem 2.5rem var(--bdr-color);
@@ -248,7 +245,7 @@ ul {
   z-index: -1;
 }
 
-.game__choice-btn:is(:active)::before {
+.game__choice-btn:not(.game__choice-btn--winner):is(:active)::before {
   opacity: 1;
   box-shadow: 0 0 0 0 var(--bdr-color);
   transition: none;
@@ -275,7 +272,7 @@ ul {
     box-shadow .25s ease-in-out;
 }
 
-.game__choice-btn[data-choice]:is(:hover, :focus-visible) {
+.game__choice-btn[data-choice]:not(.game__choice-btn--winner):is(:hover, :focus-visible) {
   scale: 1.05;
 }
 
@@ -345,12 +342,8 @@ ul {
   transition: background-color .3s ease-in-out;
 }
 
-.game__results-btn--winner:is(:hover, :focus-visible, :active) {
-  background-color: hsl(149, 70%, 56%);
-}
-
-.game__results-btn--loser:is(:hover, :focus-visible, :active) {
-  background-color: hsl(349, 70%, 56%);
+.game__results-btn:is(:hover, :focus-visible, :active) {
+  background-color: hsl(189, 59%, 53%);
 }
 
 .game__rules-btn {
