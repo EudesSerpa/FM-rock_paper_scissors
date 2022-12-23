@@ -58,12 +58,12 @@
           <!-- Second step: Play -->
           <div class="game__board">
             <ul class="game__content" data-step="2">
-              <li class="game__picked-container">
-                <button class="btn game__choice-btn"></button>
+              <li class="game__item">
+                <button class="btn game__choice-btn" data-step="2"></button>
                 <p>You picked</p>
               </li>
-              <li class="game__picked-container">
-                <button class="btn game__choice-btn"></button>
+              <li class="game__item">
+                <button class="btn game__choice-btn" data-step="2"></button>
                 <p>The house picked</p>
               </li>
             </ul>
@@ -77,21 +77,35 @@
     </main>
 
     <aside class="rules-modal">
-      <header>
-        <h2 class="rules-modal__title">Rules</h2>
-      </header>
+      <div class="rules-modal__content">
+        <header class="rules-modal__header">
+          <h2 class="rules-modal__title">Rules</h2>
 
-      <img
-        class="rules-modal__image"
-        src="./images/image-rules.svg"
-        alt="Rock beats scissors, scissors beats paper and paper beats rock"
-      />
+          <button
+            class="btn rules-modal__close-btn rules-modal__close-btn--desktop"
+            title="Close rules"
+          >
+            <span class="visually-hidden">Close rules</span>
+          </button>
+        </header>
 
-      <footer>
-        <button class="btn rules-modal__close-btn" title="Close rules">
-          <span class="visually-hidden">Close rules</span>
-        </button>
-      </footer>
+        <div class="rules-modal__image-container">
+          <img
+            class="rules-modal__image"
+            src="./images/image-rules.svg"
+            alt="Rock beats scissors, scissors beats paper and paper beats rock"
+          />
+        </div>
+
+        <footer>
+          <button
+            class="btn rules-modal__close-btn rules-modal__close-btn--mobile"
+            title="Close rules"
+          >
+            <span class="visually-hidden">Close rules</span>
+          </button>
+        </footer>
+      </div>
     </aside>
 
     <footer class="attribution">

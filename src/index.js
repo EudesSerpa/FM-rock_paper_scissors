@@ -55,15 +55,20 @@ const createResultBanner = ({ title }) => {
   return banner;
 };
 
-const removeResultBannerNode = () => {
-  const banner = $("#resultBanner");
-  banner && secondBoard.removeChild(banner);
-};
+const removeResultBannerNode = () => $("#resultBanner")?.remove();
 
 const renderResultBanner = ({ winner }) => {
   const banner = createResultBanner({ title: resultMessages[winner] || "Tie" });
 
-  secondBoard.append(banner);
+  const screenAvailWidth = window.screen.availWidth;
+
+  // TODO: Do with CSS. Just add class like the button in modal
+  if (screenAvailWidth < 740) {
+    secondBoard.append(banner);
+  } else {
+    const gameContent = secondBoard.querySelector(".game__content");
+    gameContent.insertBefore(banner, gameContent.lastElementChild);
+  }
 };
 
 const renderChoices = ({ player1Choice, player2Choice, winner }) => {
