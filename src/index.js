@@ -68,6 +68,9 @@ const renderChoices = ({ player1Choice, player2Choice, winner }) => {
   player1Button.setAttribute("data-choice", player1Choice);
   player2Button.setAttribute("data-choice", player2Choice);
 
+  player1Button.innerHTML = `<span class="visually-hidden">${player1Choice}</span>`;
+  player2Button.innerHTML = `<span class="visually-hidden">${player2Choice}</span>`;
+
   if (winner === players.PLAYER1) {
     player1Button.classList.add("game__choice-btn--winner");
   } else if (winner === players.PLAYER2) {
