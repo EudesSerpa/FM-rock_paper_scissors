@@ -4,12 +4,16 @@ This is a solution to the [Rock, Paper, Scissors challenge on Frontend Mentor](h
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
+- [Frontend Mentor - Rock, Paper, Scissors solution](#frontend-mentor---rock-paper-scissors-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Rules](#rules)
+      - [Original](#original)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
 
 ## Overview
 
@@ -33,9 +37,14 @@ If the player wins, they gain 1 point. If the computer wins, the player loses on
 - Rock beats Scissors
 - Scissors beats Paper
 
+### Screenshot
+
+![Mockup solution](./screenshots/mockup.png)
+
 ### Links
 
 - Repository URL: [Github](https://your-solution-url.com).
+- Live Site URL: [See demo](https://fm-rock-paper-scissors-sc.netlify.app/).
 
 ## My process
 
@@ -46,3 +55,4 @@ If the player wins, they gain 1 point. If the computer wins, the player loses on
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
+- JavaScript
