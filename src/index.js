@@ -1,3 +1,4 @@
+import { removeClassNames } from "./helpers/removeClassNames.js";
 import { randomIndex } from "./helpers/randomIndex.js";
 import { $ } from "./helpers/selectNode.js";
 
@@ -41,7 +42,15 @@ const renderResultBanner = ({ winner }) => {
     banner.querySelector(".game__results-title").textContent =
       resultMessages[winner] || "Tie";
 
-    banner.querySelector(".game__results-btn").onclick = () => initState();
+    const button = banner.querySelector(".game__results-btn");
+    if (winner) {
+      button.classList.add(
+        winner === players.PLAYER1
+          ? "game__results-btn--player1"
+          : "game__results-btn--player2"
+      );
+    }
+    button.onclick = () => initState();
 
     banner.classList.add("game__result-banner--show");
   });
@@ -51,8 +60,10 @@ const renderChoices = ({ player1Choice, player2Choice, winner }) => {
   const [player1Button, player2Button] =
     secondBoard.querySelectorAll(".game__choice-btn");
 
-  player1Button.classList.remove("game__choice-btn--winner");
-  player2Button.classList.remove("game__choice-btn--winner");
+  removeClassNames({
+    nodes: [player1Button, player2Button],
+    classNames: ["game__choice-btn--winner"],
+  });
 
   player1Button.setAttribute("data-choice", player1Choice);
   player2Button.setAttribute("data-choice", player2Choice);
@@ -78,9 +89,7 @@ const synchronizeScore = ({ winner }) => {
 };
 
 const synchronizeBoards = ({ activeBoard }) => {
-  boards.forEach((board) => {
-    board.classList.remove("active");
-  });
+  removeClassNames({ nodes: boards, classNames: ["active"] });
 
   activeBoard.classList.add("active");
 };
@@ -89,6 +98,12 @@ const initState = () => {
   synchronizeBoards({ activeBoard: firstBoard });
 
   score.textContent = localStorage.getItem("score") ?? 0;
+
+  const bannerButtons = document.querySelectorAll(".game__results-btn");
+  removeClassNames({
+    nodes: [...bannerButtons],
+    classNames: ["game__results-btn--player1", "game__results-btn--player2"],
+  });
 };
 
 const game = ({ player1, player2 }) => {
