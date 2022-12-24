@@ -34,41 +34,17 @@ const getWinner = ({ player1, player2 }) => {
   return isPlayer1Winner ? players.PLAYER1 : players.PLAYER2;
 };
 
-const createResultBanner = ({ title }) => {
-  const banner = document.createElement("div");
-  const heading = document.createElement("h2");
-  const button = document.createElement("button");
-
-  banner.id = "resultBanner";
-
-  heading.textContent = title;
-  heading.classList.add("game__results-title");
-
-  button.textContent = "Play again";
-  button.classList.add("btn", "game__results-btn");
-  button.onclick = () => {
-    initState();
-  };
-
-  banner.append(heading, button);
-
-  return banner;
-};
-
-const removeResultBannerNode = () => $("#resultBanner")?.remove();
-
 const renderResultBanner = ({ winner }) => {
-  const banner = createResultBanner({ title: resultMessages[winner] || "Tie" });
+  const banners = document.querySelectorAll(".game__result-banner");
 
-  const screenAvailWidth = window.screen.availWidth;
+  banners.forEach((banner) => {
+    banner.querySelector(".game__results-title").textContent =
+      resultMessages[winner] || "Tie";
 
-  // TODO: Do with CSS. Just add class like the button in modal
-  if (screenAvailWidth < 740) {
-    secondBoard.append(banner);
-  } else {
-    const gameContent = secondBoard.querySelector(".game__content");
-    gameContent.insertBefore(banner, gameContent.lastElementChild);
-  }
+    banner.querySelector(".game__results-btn").onclick = () => initState();
+
+    banner.classList.add("game__result-banner--show");
+  });
 };
 
 const renderChoices = ({ player1Choice, player2Choice, winner }) => {
@@ -113,8 +89,6 @@ const initState = () => {
   synchronizeBoards({ activeBoard: firstBoard });
 
   score.textContent = localStorage.getItem("score") ?? 0;
-
-  removeResultBannerNode();
 };
 
 const game = ({ player1, player2 }) => {

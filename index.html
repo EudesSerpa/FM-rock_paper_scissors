@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
     <link
       rel="icon"
       type="image/png"
@@ -62,11 +61,20 @@
                 <button class="btn game__choice-btn" data-step="2"></button>
                 <p>You picked</p>
               </li>
+              <li class="game__result-banner" data-desktop>
+                <h2 class="game__results-title"></h2>
+                <button class="btn game__results-btn">Play again</button>
+              </li>
               <li class="game__item">
                 <button class="btn game__choice-btn" data-step="2"></button>
                 <p>The house picked</p>
               </li>
             </ul>
+
+            <div class="game__result-banner" data-mobile>
+              <h2 class="game__results-title"></h2>
+              <button class="btn game__results-btn">Play again</button>
+            </div>
           </div>
         </div>
 
@@ -110,10 +118,18 @@
 
     <footer class="attribution">
       Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+      <a
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        rel="noopener noreferrer"
         >Frontend Mentor</a
       >. Coded by
-      <a href="https://www.linkedin.com/in/eudes-serpa/">Eudes Serpa</a>.
+      <a
+        href="https://www.linkedin.com/in/eudes-serpa/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Eudes Serpa</a
+      >.
     </footer>
 
     <script type="module" src="./src/modal.js"></script>
