@@ -369,11 +369,21 @@ ul {
 
 /* Results banner */
 :is(.game__result-banner, .game__result-banner[data-desktop]) {
-  display: none;
+  opacity: 0;
+  scale: 0;
+  position: absolute;
+}
+
+.game__result-banner {
+  transition:
+    scale .5s ease-in-out,
+    opacity .3s ease-in-out;
 }
 
 .game__result-banner--show[data-mobile] {
-  display: initial;
+  opacity: 1;
+  scale: 1;
+  position: initial;
 }
 
 /* Modal of rules */
@@ -560,11 +570,15 @@ ul {
 
   /* Results banner */
   :is(.game__result-banner, .game__result-banner[data-mobile]) {
-    display: none;
+    opacity: 0;
+    scale: 0;
+    position: absolute;
   }
 
   .game__result-banner--show[data-desktop] {
-    display: initial;
+    opacity: 1;
+    scale: 1;
+    position: initial;
   }
 
   /* Footer */
