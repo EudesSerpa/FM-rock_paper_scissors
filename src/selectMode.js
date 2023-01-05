@@ -1,7 +1,14 @@
 import { $ } from "./helpers/selectNode.js";
 import { removeClassNames } from "./helpers/removeClassNames.js";
 import { initialStateGame, handleSelectionHand } from "./game.js";
-import { boards, classNames, logos, modes, ruleImages, documentTitles } from "./constants.js";
+import {
+  boards,
+  classNames,
+  logos,
+  modes,
+  ruleImages,
+  documentTitles,
+} from "./constants.js";
 
 const mainTag = $("main");
 const modePage = $(".mode");
@@ -50,14 +57,17 @@ function changePage({ activePage }) {
 /**
  * Configures the active page to display its corresponding elements.
  * @param {Object} param0 - n object containing the mode and board values.
-  * @param {HTMLElement} param0.board - The DOM element representing the board to synchronize with.
+ * @param {HTMLElement} param0.board - The DOM element representing the board to synchronize with.
  * @returns {void}
  */
 function synchronizePage({ board }) {
   // config board
   gamePage.setAttribute("data-game", mode);
 
-  document.title = mode === modes.NORMAL ? documentTitles[modes.NORMAL] : documentTitles[modes.BONUS]
+  document.title =
+    mode === modes.NORMAL
+      ? documentTitles[modes.NORMAL]
+      : documentTitles[modes.BONUS];
 
   // show board, logo and rules image
   board.classList.add(classNames.ACTIVE);
@@ -65,7 +75,7 @@ function synchronizePage({ board }) {
   ruleImages[mode].classList.add(classNames.ACTIVE);
 }
 
-function handleClick ({target}) {
+function handleClick({ target }) {
   handleSelectionHand({ target, mode });
 }
 
@@ -85,9 +95,11 @@ function handleSelectionMode({ target }) {
   synchronizePage({ board });
 
   initialStateGame({ mode });
-  
-  $(`.game__content--${mode === modes.NORMAL ? modes.BONUS : modes.NORMAL}`).removeEventListener("click", handleClick)
-  
+
+  $(
+    `.game__content--${mode === modes.NORMAL ? modes.BONUS : modes.NORMAL}`
+  ).removeEventListener("click", handleClick);
+
   const selectionBoard = $(`.game__content--${mode}`);
   selectionBoard.addEventListener("click", handleClick);
 }

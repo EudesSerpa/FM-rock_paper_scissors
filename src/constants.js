@@ -20,9 +20,9 @@ export const modes = {
 
 export const documentTitles = {
   [modes.NORMAL]: "FM | Rock, Paper, Scissors Game",
-  [modes.BONUS]:  "FM | Rock, Paper, Scissors, Lizard, Spock Game",
-  default:  "FM | Selection Mode"
-}
+  [modes.BONUS]: "FM | Rock, Paper, Scissors, Lizard, Spock Game",
+  default: "FM | Selection Mode",
+};
 
 export const boards = {
   [modes.NORMAL]: $(".game__board[data-mode='normal']"),

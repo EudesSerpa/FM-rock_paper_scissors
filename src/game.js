@@ -173,16 +173,17 @@ export const initialStateGame = ({ mode }) => {
  */
 const game = ({ player1, player2, mode }) => {
   synchronizeBoards({ activeBoard: boards.game });
-  
+
   renderHand({ hand: player1, node: player1Button });
-  
+
   sleep(SLEEP_TIME).then(() => {
     renderHand({ hand: player2, node: player2Button });
-    
+
     const winner = getWinner({ player1, player2, mode });
 
     if (winner) {
-      const winningNode = winner === players.PLAYER1 ? player1Button : player2Button;
+      const winningNode =
+        winner === players.PLAYER1 ? player1Button : player2Button;
       addClassToWinner({ winningNode });
     }
 
