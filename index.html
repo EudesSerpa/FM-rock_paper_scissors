@@ -1,28 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
-
-    <title>Frontend Mentor | Rock, Paper, Scissors</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Test your skills against the machine in this interactive game of Rock, Paper, Scissors and its version of Star Trek, created with HTML, CSS and JavaScript. It features a simple interface for you to choose your hand and a display area to show the outcome of the game. This front-end application offers endless fun for players of all ages. Challenge yourself and see if you can outsmart the computer in this classic hand game.">
+    <link rel="icon" type="image/png" sizes="32x32"
+      href="./images/favicon-32x32.png">
+    <title>FM | Rock, Paper, Scissors Game</title>
+    <!-- Preconnect and prefetching to resources -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/bonus.css">
+    <link rel="stylesheet" href="./styles/tooltip.css">
+    <link rel="stylesheet" href="./styles/desktop.css" media="screen and (min-width: 940px)">
+    <link rel="stylesheet" href="./styles/desktop-bonus.css" media="screen and (min-width: 940px)">
   </head>
   <body>
+    <h1 class="visually-hidden">Rock, paper and scissors game with the Star Trek version</h1>
+
     <main>
+      <section class="mode active">
+        <h2 class="mode__title">Select game mode</h2>
+
+        <footer class="mode__buttons">
+          <button class="btn mode__button mode__button--normal tooltip"
+            data-mode="normal">
+            Normal
+            <tool-tip role="tooltip" tip-position="top">Rock, paper and scissors</tool-tip>
+          </button>
+          <button class="btn mode__button mode__button--bonus"
+            data-mode="bonus">
+            Star Trek
+            <tool-tip role="tooltip" tip-position="bottom">Rock, paper,
+              scissors, lizard and spock</tool-tip>
+          </button>
+        </footer>
+      </section>
+
       <section class="game">
         <header class="game__header">
-          <h1 class="visually-hidden">Rock, paper and scissors game</h1>
-          <img
-            class="game__logo"
-            src="./images/logo.svg"
-            alt="Rock, paper and scissors"
-          />
+          <h2 class="visually-hidden">Game</h2>
+          
+          <div class="game__logo-container">
+            <img class="game__logo game__logo--normal" src="./images/logo.svg"
+              alt="Rock, paper and scissors logo" loading="lazy">
+            <img class="game__logo game__logo--bonus"
+              src="./images/logo-bonus.svg"
+              alt="Rock, paper, scissors, lizard and spock logo" loading="lazy">
+          </div>
 
           <div class="game__score-container">
             <p class="game__score-text">Score</p>
@@ -32,30 +59,64 @@
 
         <div class="game__body">
           <!-- First Step: Selection -->
-          <article class="game__board" data-board="1">
-            <h2 class="game__init-title">Select your hand</h2>
+          <article class="game__board game__board--normal hidden" data-board="1"
+            data-mode="normal">
+            <h3 class="game__init-title">Select your hand</h3>
 
-            <ul class="game__content" data-step="1">
+            <ul class="game__content game__content--normal" data-step="1">
               <li>
-                <button class="btn game__choice-btn" data-choice="paper">
-                  <span class="visually-hidden">Paper</span>
+                <button class="btn game__choice-btn" data-hand="paper">
+                  <tool-tip role="tooltip" tip-position="top">Paper</tool-tip>
                 </button>
               </li>
               <li>
-                <button class="btn game__choice-btn" data-choice="scissors">
-                  <span class="visually-hidden">Scissors</span>
+                <button class="btn game__choice-btn" data-hand="scissors">
+                  <tool-tip role="tooltip" tip-position="top">Scissors</tool-tip>
                 </button>
               </li>
               <li>
-                <button class="btn game__choice-btn" data-choice="rock">
-                  <span class="visually-hidden">Rock</span>
+                <button class="btn game__choice-btn" data-hand="rock">
+                  <tool-tip role="tooltip" tip-position="top">Rock</tool-tip>
+                </button>
+              </li>
+            </ul>
+          </article>
+
+          <article class="game__board game__board--bonus hidden" data-board="1"
+            data-mode="bonus">
+            <h3 class="game__init-title">Select your hand</h3>
+
+            <ul class="game__content game__content--bonus" data-step="1">
+              <li class="game__item">
+                <button class="btn game__choice-btn" data-hand="scissors">
+                  <tool-tip role="tooltip" tip-position="top">Scissors</tool-tip>
+                </button>
+              </li>
+              <li class="game__item">
+                <button class="btn game__choice-btn" data-hand="paper">
+                  <tool-tip role="tooltip" tip-position="top">Paper</tool-tip>
+                </button>
+              </li>
+              <li class="game__item">
+                <button class="btn game__choice-btn" data-hand="rock">
+                  <tool-tip role="tooltip" tip-position="top">Rock</tool-tip>
+                </button>
+              </li>
+              <li class="game__item">
+                <button class="btn game__choice-btn" data-hand="lizard">
+                  <tool-tip role="tooltip" tip-position="top">Lizard</tool-tip>
+                </button>
+              </li>
+              <li class="game__item">
+                <button class="btn game__choice-btn" data-hand="spock">
+                  <tool-tip role="tooltip" tip-position="top">Spock</tool-tip>
                 </button>
               </li>
             </ul>
           </article>
 
           <!-- Second step: Play -->
-          <div class="game__board">
+          <div class="game__board" data-step="2">
             <ul class="game__content" data-step="2">
               <li class="game__item">
                 <button class="btn game__choice-btn" data-step="2">
@@ -64,7 +125,7 @@
                 <p>You picked</p>
               </li>
               <li class="game__result-banner" data-desktop>
-                <h2 class="game__results-title">Result</h2>
+                <h3 class="game__results-title">Result</h3>
                 <button class="btn game__results-btn">Play again</button>
               </li>
               <li class="game__item">
@@ -76,13 +137,14 @@
             </ul>
 
             <div class="game__result-banner" data-mobile>
-              <h2 class="game__results-title">Result</h2>
+              <h3 class="game__results-title">Result</h3>
               <button class="btn game__results-btn">Play again</button>
             </div>
           </div>
         </div>
 
         <footer class="game__footer">
+          <button class="btn game__mode-btn">Change mode</button>
           <button class="btn game__rules-btn">Rules</button>
         </footer>
       </section>
@@ -93,27 +155,28 @@
         <header class="rules-modal__header">
           <h2 class="rules-modal__title">Rules</h2>
 
-          <button
-            class="btn rules-modal__close-btn rules-modal__close-btn--desktop"
-            title="Close rules"
-          >
+          <button class="btn rules-modal__close-btn
+            rules-modal__close-btn--desktop" title="Close rules">
             <span class="visually-hidden">Close rules</span>
           </button>
         </header>
 
         <div class="rules-modal__image-container">
-          <img
-            class="rules-modal__image"
+          <img class="rules-modal__image rules-modal__image--normal"
             src="./images/image-rules.svg"
-            alt="Rock beats scissors, scissors beats paper and paper beats rock"
-          />
+            alt="Rules: rock beats scissors, scissors beats paper and paper
+            beats rock" loading="lazy">
+          <img class="rules-modal__image rules-modal__image--bonus"
+            src="./images/image-rules-bonus.svg"
+            alt="Rules: rock beats scissors, scissors beats paper, paper beats
+            rock, rock beats lizard, lizard beats spock, spock beats scissors,
+            scissors beats lizard, lizard beats paper, spock beats rock and
+            paper beats spock" loading="lazy">
         </div>
 
         <footer>
-          <button
-            class="btn rules-modal__close-btn rules-modal__close-btn--mobile"
-            title="Close rules"
-          >
+          <button class="btn rules-modal__close-btn
+            rules-modal__close-btn--mobile" title="Close rules">
             <span class="visually-hidden">Close rules</span>
           </button>
         </footer>
@@ -122,21 +185,16 @@
 
     <footer class="attribution">
       Challenge by
-      <a
-        href="https://www.frontendmentor.io?ref=challenge"
-        target="_blank"
-        rel="noopener noreferrer"
-        >Frontend Mentor</a
-      >. Coded by
-      <a
-        href="https://www.linkedin.com/in/eudes-serpa/"
-        target="_blank"
-        rel="noopener noreferrer"
-        >Eudes Serpa</a
-      >.
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        rel="noopener noreferrer">Frontend
+        Mentor</a>. Coded by
+      <a class="attribution__author" href="https://www.linkedin.com/in/eudes-serpa/" target="_blank"
+        rel="noopener noreferrer">Eudes Serpa</a>.
     </footer>
 
+    <script type="module" src="./src/selectMode.js"></script>
     <script type="module" src="./src/modal.js"></script>
-    <script type="module" src="./src/index.js"></script>
+    <script type="module" src="./src/utils/has-polyfill.js"></script>
   </body>
+
 </html>

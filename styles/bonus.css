@@ -1,0 +1,90 @@
+.game[data-game="bonus"] {
+  place-content: initial;
+  align-items: center;
+}
+
+.game[data-game="bonus"] .game__body {
+  justify-self: center;
+}
+
+.game__board--bonus[data-board="1"] {
+  gap: 1.5rem;
+}
+
+.game__content--bonus[data-step="1"] {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  position: relative;
+  background: no-repeat center/100% url("../images/bg-pentagon.svg");
+}
+
+.game__content--bonus[data-step="1"] .game__item {
+  position: relative;
+}
+
+.game__content--bonus[data-step="1"] .game__item:nth-of-type(1) {
+  top: -10%;
+  justify-self: center;
+  grid-column: 1 / -1;
+}
+
+.game__content--bonus[data-step="1"] .game__item:nth-of-type(2),
+.game__content--bonus[data-step="1"] .game__item:nth-of-type(5) {
+  top: -50%;
+}
+
+.game__content--bonus[data-step="1"] .game__item:nth-of-type(2) {
+  right: -45%;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.game__content--bonus[data-step="1"] .game__item:nth-of-type(5) {
+  left: -50%;
+}
+
+.game__content--bonus[data-step="1"] .game__item:nth-of-type(3),
+.game__content--bonus[data-step="1"] .game__item:nth-of-type(4) {
+  bottom: 0;
+}
+
+.game__content--bonus[data-step="1"] .game__item:nth-of-type(3) {
+  right: -15%;
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.game__content--bonus[data-step="1"] .game__item:nth-of-type(4) {
+  left: -20%;
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.game__content--bonus[data-step="1"] .game__choice-btn {
+  --bdr-width: .625rem;
+  padding: .25rem .625rem;
+}
+
+.game__content--bonus[data-step="1"] .game__choice-btn::after {
+  background-size: 60%;
+}
+
+
+.game__choice-btn[data-hand="lizard"] {
+  --bdr-color: hsl(261, 72%, 63%);
+  --shadow-color: hsl(261, 73%, 60%);
+}
+
+.game__choice-btn[data-hand="lizard"]::after {
+  --choice-icon: url("../images/icon-lizard.svg");
+}
+
+.game__choice-btn[data-hand="spock"] {
+  --bdr-color: hsl(189, 58%, 57%);
+  --shadow-color: hsl(189, 59%, 53%);
+}
+
+.game__choice-btn[data-hand="spock"]::after {
+  --choice-icon: url("../images/icon-spock.svg");
+}
