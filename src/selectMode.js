@@ -7,6 +7,8 @@ const mainTag = $("main");
 const modePage = $(".mode");
 const gamePage = $(".game");
 
+let mode = undefined;
+
 document.title = documentTitles.default;
 
 /**
@@ -48,11 +50,10 @@ function changePage({ activePage }) {
 /**
  * Configures the active page to display its corresponding elements.
  * @param {Object} param0 - n object containing the mode and board values.
- * @param {string} param0.mode - The mode to synchronize with.
- * @param {HTMLElement} param0.board - The DOM element representing the board to synchronize with.
+  * @param {HTMLElement} param0.board - The DOM element representing the board to synchronize with.
  * @returns {void}
  */
-function synchronizePage({ mode, board }) {
+function synchronizePage({ board }) {
   // config board
   gamePage.setAttribute("data-game", mode);
 
@@ -64,6 +65,10 @@ function synchronizePage({ mode, board }) {
   ruleImages[mode].classList.add(classNames.ACTIVE);
 }
 
+function handleClick ({target}) {
+  handleSelectionHand({ target, mode });
+}
+
 /**
  * Handles the selection mode.
  * @param {Event} event - The event object.
@@ -73,18 +78,18 @@ function synchronizePage({ mode, board }) {
 function handleSelectionMode({ target }) {
   if (target.tagName !== "BUTTON") return;
 
-  const mode = target.dataset.mode?.toLowerCase() || modes.NORMAL;
+  mode = target.dataset.mode?.toLowerCase() || modes.NORMAL;
   const board = boards[mode];
 
   changePage({ activePage: gamePage });
-  synchronizePage({ mode, board });
+  synchronizePage({ board });
 
   initialStateGame({ mode });
-
+  
+  $(`.game__content--${mode === modes.NORMAL ? modes.BONUS : modes.NORMAL}`).removeEventListener("click", handleClick)
+  
   const selectionBoard = $(`.game__content--${mode}`);
-  selectionBoard.addEventListener("click", ({ target }) => {
-    handleSelectionHand({ target, mode });
-  });
+  selectionBoard.addEventListener("click", handleClick);
 }
 
 /**
