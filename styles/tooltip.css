@@ -43,12 +43,12 @@ tool-tip {
 }
 
 /* create a stacking context for elements with > tool-tips */
-:has(> tool-tip) {
+:has(tool-tip) {
   position: relative;
 }
 
 /* when those parent elements have focus, hover, etc */
-:has(> tool-tip):is(:hover, :focus-visible, :active)>tool-tip {
+:has(tool-tip):is(:hover, :focus-visible, :active)>tool-tip {
   opacity: 1;
   transition-delay: 200ms;
 }
@@ -124,10 +124,10 @@ tool-tip:is([tip-position="bottom"], [tip-position="block-end"])::after {
 }
 
 /* transitions */
-:has(> tool-tip:is([tip-position="top"], [tip-position="block-start"], :not([tip-position]))):not(:hover):not(:focus-visible):not(:active) tool-tip {
+:has(tool-tip:is([tip-position="top"], [tip-position="block-start"], :not([tip-position]))):not(:hover):not(:focus-visible):not(:active) tool-tip {
   --_y: 3px;
 }
 
-:has(> tool-tip:is([tip-position="bottom"], [tip-position="block-end"])):not(:hover):not(:focus-visible):not(:active) tool-tip {
+:has(tool-tip:is([tip-position="bottom"], [tip-position="block-end"])):not(:hover):not(:focus-visible):not(:active) tool-tip {
   --_y: -3px;
 }
