@@ -73,7 +73,7 @@ const renderHand = ({ hand, node }) => {
  * @returns {void}
  */
 const addClassToWinner = ({ winningNode }) => {
-  winningNode?.classList.add(classNames.WINNING_HAND);
+  winningNode.classList.add(classNames.WINNING_HAND);
 };
 
 /**
@@ -173,19 +173,18 @@ export const initialStateGame = ({ mode }) => {
  */
 const game = ({ player1, player2, mode }) => {
   synchronizeBoards({ activeBoard: boards.game });
-
-  const winner = getWinner({ player1, player2, mode });
-  let winningNode = null;
-
-  if (winner) {
-    winningNode = winner === players.PLAYER1 ? player1Button : player2Button;
-  }
-
+  
   renderHand({ hand: player1, node: player1Button });
-
+  
   sleep(SLEEP_TIME).then(() => {
     renderHand({ hand: player2, node: player2Button });
-    addClassToWinner({ winningNode });
+    
+    const winner = getWinner({ player1, player2, mode });
+
+    if (winner) {
+      const winningNode = winner === players.PLAYER1 ? player1Button : player2Button;
+      addClassToWinner({ winningNode });
+    }
 
     synchronizeScore({ winner, mode });
     renderResultBanner({ winner, mode });
