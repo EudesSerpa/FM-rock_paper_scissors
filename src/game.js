@@ -73,9 +73,7 @@ const renderHand = ({ hand, node }) => {
  * @returns {void}
  */
 const addClassToWinner = ({ winningNode }) => {
-  if (!winningNode) return;
-
-  winningNode.classList.add(classNames.WINNING_HAND);
+  winningNode?.classList.add(classNames.WINNING_HAND);
 };
 
 /**
@@ -115,10 +113,10 @@ const getNewScore = (score) => ({
  */
 const synchronizeScore = ({ winner, mode }) => {
   const prevScore = Number(score.textContent);
+  const newScore = getNewScore(prevScore)[winner] ?? prevScore;
+  score.textContent = newScore;
 
-  score.textContent = getNewScore(prevScore)[winner] ?? prevScore;
-
-  localStorage.setItem(`${mode}-score`, score.textContent);
+  localStorage.setItem(`${mode}-score`, newScore);
 };
 
 /**
