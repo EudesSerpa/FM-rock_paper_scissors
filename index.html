@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Test your skills against the machine in this interactive game of Rock, Paper, Scissors and its version of Star Trek, created with HTML, CSS and JavaScript. It features a simple interface for you to choose your hand and a display area to show the outcome of the game. This front-end application offers endless fun for players of all ages. Challenge yourself and see if you can outsmart the computer in this classic hand game.">
+    <meta name="description" content="Test your skills against the machine in
+      this interactive game of Rock, Paper, Scissors and its version of Star
+      Trek, created with HTML, CSS and JavaScript. It features a simple
+      interface for you to choose your hand and a display area to show the
+      outcome of the game. This front-end application offers endless fun for
+      players of all ages. Challenge yourself and see if you can outsmart the
+      computer in this classic hand game.">
     <link rel="icon" type="image/png" sizes="32x32"
       href="./images/favicon-32x32.png">
     <title>FM | Rock, Paper, Scissors Game</title>
@@ -14,13 +20,16 @@
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/bonus.css">
     <link rel="stylesheet" href="./styles/tooltip.css">
-    <link rel="stylesheet" href="./styles/desktop.css" media="screen and (min-width: 940px)">
-    <link rel="stylesheet" href="./styles/desktop-bonus.css" media="screen and (min-width: 940px)">
+    <link rel="stylesheet" href="./styles/desktop.css" media="screen and
+      (min-width: 940px)">
+    <link rel="stylesheet" href="./styles/desktop-bonus.css" media="screen and
+      (min-width: 940px)">
   </head>
   <body>
     <main>
-      <h1 class="visually-hidden">Rock, paper and scissors game with the Star Trek version</h1>
-      
+      <h1 class="visually-hidden">Rock, paper and scissors game with the Star
+        Trek version</h1>
+
       <section class="mode active">
         <h2 class="mode__title">Select game mode</h2>
 
@@ -42,7 +51,7 @@
       <section class="game">
         <header class="game__header">
           <h2 class="visually-hidden">Game</h2>
-          
+
           <div class="game__logo-container">
             <img class="game__logo game__logo--normal" src="./images/logo.svg"
               alt="Rock, paper and scissors logo" loading="lazy">
@@ -150,51 +159,49 @@
       </section>
     </main>
 
-    <aside class="rules-modal">
-      <div class="rules-modal__content">
-        <header class="rules-modal__header">
-          <h2 class="rules-modal__title">Rules</h2>
+    <dialog class="rules-modal">
+      <header class="rules-modal__header">
+        <h2 class="rules-modal__title">Rules</h2>
 
-          <button class="btn rules-modal__close-btn
-            rules-modal__close-btn--desktop" title="Close rules">
-            <span class="visually-hidden">Close rules</span>
-          </button>
-        </header>
+        <button class="btn rules-modal__close-btn
+          rules-modal__close-btn--desktop" title="Close rules">
+          <span class="visually-hidden">Close rules</span>
+        </button>
+      </header>
 
-        <div class="rules-modal__image-container">
-          <img class="rules-modal__image rules-modal__image--normal"
-            src="./images/image-rules.svg"
-            alt="Rules: rock beats scissors, scissors beats paper and paper
-            beats rock" loading="lazy">
-          <img class="rules-modal__image rules-modal__image--bonus"
-            src="./images/image-rules-bonus.svg"
-            alt="Rules: rock beats scissors, scissors beats paper, paper beats
-            rock, rock beats lizard, lizard beats spock, spock beats scissors,
-            scissors beats lizard, lizard beats paper, spock beats rock and
-            paper beats spock" loading="lazy">
-        </div>
-
-        <footer>
-          <button class="btn rules-modal__close-btn
-            rules-modal__close-btn--mobile" title="Close rules">
-            <span class="visually-hidden">Close rules</span>
-          </button>
-        </footer>
+      <div class="rules-modal__image-container">
+        <img class="rules-modal__image rules-modal__image--normal"
+          src="./images/image-rules.svg"
+          alt="Rules: rock beats scissors, scissors beats paper and paper
+          beats rock" loading="lazy">
+        <img class="rules-modal__image rules-modal__image--bonus"
+          src="./images/image-rules-bonus.svg"
+          alt="Rules: rock beats scissors, scissors beats paper, paper beats
+          rock, rock beats lizard, lizard beats spock, spock beats scissors,
+          scissors beats lizard, lizard beats paper, spock beats rock and
+          paper beats spock" loading="lazy">
       </div>
-    </aside>
+
+      <footer>
+        <button class="btn rules-modal__close-btn
+          rules-modal__close-btn--mobile" title="Close rules">
+          <span class="visually-hidden">Close rules</span>
+        </button>
+      </footer>
+    </dialog>
 
     <footer class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         rel="noopener noreferrer">Frontend
         Mentor</a>. Coded by
-      <a class="attribution__author" href="https://www.linkedin.com/in/eudes-serpa/" target="_blank"
+      <a class="attribution__author"
+        href="https://www.linkedin.com/in/eudes-serpa/" target="_blank"
         rel="noopener noreferrer">Eudes Serpa</a>.
     </footer>
 
     <script type="module" src="./src/selectMode.js"></script>
-    <script type="module" src="./src/modal.js"></script>
+    <script type="module" src="./src/modal.js" async></script>
     <script type="module" src="./src/utils/has-polyfill.js"></script>
   </body>
-
 </html>

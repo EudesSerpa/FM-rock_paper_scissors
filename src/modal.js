@@ -1,22 +1,17 @@
 import { $ } from "./helpers/selectNode.js";
 
+const body = $("body");
 const modal = $(".rules-modal");
-const modalBody = $(".rules-modal__content");
 const openRulesBtn = $(".game__rules-btn");
 
 const openModal = (_evt) => {
-  scrollTo({
-    top,
-  });
-  modal.classList.add("open");
-
-  document.addEventListener("keyup", handleEscape);
+  body.style.overflow = "hidden";
+  modal.showModal();
 };
 
 const closeModal = () => {
-  modal.classList.remove("open");
-
-  document.removeEventListener("keyup", handleEscape);
+  body.style.overflow = "";
+  modal.close();
 };
 
 const handleClick = ({ target }) => {
@@ -25,11 +20,5 @@ const handleClick = ({ target }) => {
   closeModal();
 };
 
-const handleEscape = ({ code }) => {
-  if (code !== "Escape") return;
-
-  closeModal();
-};
-
 openRulesBtn.addEventListener("click", openModal);
-modalBody.addEventListener("click", handleClick);
+modal.addEventListener("click", handleClick);

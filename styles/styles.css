@@ -467,29 +467,36 @@ ul {
 
 /* Modal of rules */
 .rules-modal {
+  --size-content: 60ch;
+
   position: absolute;
   inset: 0;
-  translate: 0 -110vh;
-  opacity: 0;
-  transition: opacity .25s ease-in;
-  z-index: 10;
-}
 
-.rules-modal:is(.open) {
-  transition: opacity .5s ease-out;
-  translate: 0;
-  opacity: 1;
-}
-
-.rules-modal__content {
   display: grid;
   gap: 2rem;
   place-items: center;
   align-content: space-between;
+
+  width: 100%;
   height: 100%;
+  max-inline-size: min(100vw, 100%);
+  max-block-size: min(100vh, 100%);
+  max-block-size: min(100dvb, 100%);
+
   padding: 3rem 2rem;
+  border: none;
   color: var(--dark-text);
   background-color: var(--main-text);
+
+  overflow: hidden;
+  z-index: 10;
+
+  transition: opacity .25s ease-in;
+}
+
+.rules-modal:not([open]) {
+  pointer-events: none;
+  opacity: 0;
 }
 
 .rules-modal__image-container {
@@ -556,4 +563,18 @@ ul {
 
 .attribution__author {
   white-space: nowrap;
+}
+
+/* Responsive */
+@media screen and (max-width: 375px) {
+  .btn.game__choice-btn {
+    --bdr-width: 0.625rem;
+    padding: 0.6125rem 0.75rem;
+  }
+
+  .game__choice-btn::after {
+    width: 35px;
+    height: 45px;
+    background-size: 80%;
+  }
 }

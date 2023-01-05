@@ -135,21 +135,23 @@
   }
 
   /* Modal of rules */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
   .rules-modal {
-    display: grid;
-    place-items: center;
-    background-color: hsla(0, 0%, 0%, 0.5);
+    place-items: initial;
+    gap: .5rem;
+    width: max-content;
+    height: fit-content;
+    padding: 2rem 2rem 1.5rem;
+    margin: auto;
+    border-radius: var(--bdr-radius);
     font-size: 1.2rem;
   }
 
-  .rules-modal__content {
-    place-items: initial;
-    gap: .5rem;
-    width: min(360px, 100%);
-    height: min-content;
-    margin: 0 auto;
-    padding: 2rem 2rem 1.5rem;
-    border-radius: var(--bdr-radius);
+  .rules-modal::backdrop {
+    background-color: hsla(0, 0%, 0%, 0.5);
   }
 
   .rules-modal__header {
