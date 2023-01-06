@@ -1,5 +1,4 @@
 .game[data-game="bonus"] {
-  place-content: initial;
   align-items: center;
 }
 
@@ -7,15 +6,10 @@
   justify-self: center;
 }
 
-.game__board--bonus[data-board="1"] {
-  gap: 1.5rem;
-}
-
 .game__content--bonus[data-step="1"] {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, auto);
-  position: relative;
   background: no-repeat center/100% url("../images/bg-pentagon.svg");
 }
 
@@ -70,14 +64,13 @@
   background-size: 60%;
 }
 
-
 .game__choice-btn[data-hand="lizard"] {
   --bdr-color: hsl(261, 72%, 63%);
   --shadow-color: hsl(261, 73%, 60%);
 }
 
 .game__choice-btn[data-hand="lizard"]::after {
-  --choice-icon: url("../images/icon-lizard.svg");
+  --hand-icon: url("../images/icon-lizard.svg");
 }
 
 .game__choice-btn[data-hand="spock"] {
@@ -86,5 +79,5 @@
 }
 
 .game__choice-btn[data-hand="spock"]::after {
-  --choice-icon: url("../images/icon-spock.svg");
+  --hand-icon: url("../images/icon-spock.svg");
 }

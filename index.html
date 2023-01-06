@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +15,8 @@
       href="./images/favicon-32x32.png">
     <title>FM | Rock, Paper, Scissors Game</title>
     <!-- Preconnect and prefetching to resources -->
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
     <!-- Styles -->
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/bonus.css">
@@ -25,15 +26,17 @@
     <link rel="stylesheet" href="./styles/desktop-bonus.css" media="screen and
       (min-width: 940px)">
   </head>
+
   <body>
     <main>
-      <h1 class="visually-hidden">Rock, paper and scissors game with the Star
-        Trek version</h1>
+      <h1 class="visually-hidden">
+        Rock, paper and scissors game with the Star Trek version
+      </h1>
 
       <section class="mode active">
         <h2 class="mode__title">Select game mode</h2>
 
-        <footer class="mode__buttons">
+        <footer class="mode__buttons flex-group-center">
           <button class="btn mode__button mode__button--normal tooltip"
             data-mode="normal">
             Normal
@@ -49,12 +52,13 @@
       </section>
 
       <section class="game">
-        <header class="game__header">
+        <header class="game__header flex-group-center">
           <h2 class="visually-hidden">Game</h2>
 
           <div class="game__logo-container">
             <img class="game__logo game__logo--normal" src="./images/logo.svg"
-              alt="Rock, paper and scissors logo" loading="lazy">
+              alt="Rock, paper and scissors logo"
+              loading="lazy">
             <img class="game__logo game__logo--bonus"
               src="./images/logo-bonus.svg"
               alt="Rock, paper, scissors, lizard and spock logo" loading="lazy">
@@ -68,11 +72,12 @@
 
         <div class="game__body">
           <!-- First Step: Selection -->
-          <article class="game__board game__board--normal hidden" data-board="1"
+          <article class="game__board game__board--normal" data-board="1"
             data-mode="normal">
-            <h3 class="game__init-title">Select your hand</h3>
+            <h3 class="game__board-title">Select your hand</h3>
 
-            <ul class="game__content game__content--normal" data-step="1">
+            <ul class="game__content game__content--normal flex-group-center"
+              data-step="1">
               <li>
                 <button class="btn game__choice-btn" data-hand="paper">
                   <tool-tip role="tooltip" tip-position="top">Paper</tool-tip>
@@ -91,11 +96,12 @@
             </ul>
           </article>
 
-          <article class="game__board game__board--bonus hidden" data-board="1"
+          <article class="game__board game__board--bonus" data-board="1"
             data-mode="bonus">
-            <h3 class="game__init-title">Select your hand</h3>
+            <h3 class="game__board-title">Select your hand</h3>
 
-            <ul class="game__content game__content--bonus" data-step="1">
+            <ul class="game__content game__content--bonus flex-group-center"
+              data-step="1">
               <li class="game__item">
                 <button class="btn game__choice-btn" data-hand="scissors">
                   <tool-tip role="tooltip" tip-position="top">Scissors</tool-tip>
@@ -126,7 +132,7 @@
 
           <!-- Second step: Play -->
           <div class="game__board" data-step="2">
-            <ul class="game__content" data-step="2">
+            <ul class="game__content flex-group-center" data-step="2">
               <li class="game__item">
                 <button class="btn game__choice-btn" data-step="2">
                   <span class="visually-hidden">Player choice</span>
@@ -152,7 +158,7 @@
           </div>
         </div>
 
-        <footer class="game__footer">
+        <footer class="game__footer flex-group-center">
           <button class="btn game__mode-btn">Change mode</button>
           <button class="btn game__rules-btn">Rules</button>
         </footer>
@@ -171,12 +177,12 @@
 
       <div class="rules-modal__image-container">
         <img class="rules-modal__image rules-modal__image--normal"
-          src="./images/image-rules.svg"
-          alt="Rules: rock beats scissors, scissors beats paper and paper
+          src="./images/image-rules.svg" alt="Rules: rock beats scissors,
+          scissors beats paper and paper
           beats rock" loading="lazy">
         <img class="rules-modal__image rules-modal__image--bonus"
-          src="./images/image-rules-bonus.svg"
-          alt="Rules: rock beats scissors, scissors beats paper, paper beats
+          src="./images/image-rules-bonus.svg" alt="Rules: rock beats scissors,
+          scissors beats paper, paper beats
           rock, rock beats lizard, lizard beats spock, spock beats scissors,
           scissors beats lizard, lizard beats paper, spock beats rock and
           paper beats spock" loading="lazy">
@@ -204,4 +210,5 @@
     <script type="module" src="./src/modal.js" async></script>
     <script type="module" src="./src/utils/has-polyfill.js"></script>
   </body>
+
 </html>
